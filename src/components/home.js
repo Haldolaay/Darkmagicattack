@@ -5,30 +5,30 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: [],
+      cards: [],
       isUpdated: false,
-      typingTimeout: 0,
+      result: "",
     };
   }
-  componentDidMount() {}
-  gettingValue(event) {
-    if (this.state.typingTimeout) {
-      clearTimeout(this.state.typingTimeout);
-    }
-    let cardName = event.replace(/ /g, "%");
-    console.log(cardName);
+  componentDidMount() {
     if (!this.state.isUpdated) {
-      fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}`)
+      fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
         .then((response) => response.json())
         .then((response) => {
           console.log(response);
-          this.setState({
-            isUpdated: true,
-            typingTimeout: setTimeout(function () {
-              this.setState({ card: response });
-            }, 5000),
-          });
+          this.setState({ cards: response.data, isUpdated: true });
         });
+    }
+  }
+  gettingValue(event) {
+    let cardName = event;
+    var re = new RegExp(cardName, "g");
+    // console.log(re);
+    if (this.state.isUpdated) {
+      let koko = this.state.cards.filter((item) => {
+        return re.test(item.name);
+      });
+         
     }
   }
   render() {
@@ -40,7 +40,7 @@ export default class Home extends React.Component {
           onChange={(e) => this.gettingValue(e.target.value)}
         />
         {this.state.isUpdated ? (
-          <div>Work in ProgreSS</div>
+          <div>working on it</div>
         ) : (
           console.log("there is nothing")
         )}
