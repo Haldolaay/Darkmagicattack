@@ -2,5 +2,7 @@
     border-top: 2px  solid orange;
     display: flex;
     justify-content: space-between;
-    bottom: 10px
+    bottom: 10px;
+    color: white;
+    background-color: black;
 }

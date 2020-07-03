@@ -5,15 +5,17 @@ import Container from '@material-ui/core/Container';
 import  Title from './title';
 import Header from './header'
 import Footer from './footer'
+import Home from './home'
 export default function SimpleContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="large">
+      <Container maxWidth="lg">
        
         <Typography component="div" style={{  height: '100vh' }} >
         <Header/>
         <Title/>
+        <Home/>
           </Typography>
       <Footer/>
       </Container>
