@@ -16,12 +16,16 @@ This Project was made by a suggestion from a friend, he disapeared, I think he i
 "react-scripts": "3.4.1"
 
     TODO//
-    fix card names
-    show random cards
+    fix card names // fixed
+    show random cards // 
     create autoComplete function
     create login
     create deck page
     create about page
-    fix design
+    fix design// work in progress
     wait until the typing stops - look into promises
+<<<<<<< HEAD
     add a side panel for types filter
+=======
+    add a card filter dropDown hidden under the search bar or over it// I don't know yet
+>>>>>>> 19cc8bd568cb236159b2bbd7333161595403e463
