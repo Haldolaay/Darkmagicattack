@@ -1,6 +1,8 @@
 import React from "react";
 import { Input } from "@material-ui/core";
 import "./home.css";
+import Input2 from "./input";
+import Pagination from "@material-ui/lab/Pagination";
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -8,9 +10,11 @@ export default class Home extends React.Component {
       cards: [],
       isUpdated: false,
       result: "",
+      isResultUpdated: false,
     };
   }
   componentDidMount() {
+    console.log(this.props);
     if (!this.state.isUpdated) {
       fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
         .then((response) => response.json())
@@ -29,6 +33,7 @@ export default class Home extends React.Component {
         result: this.state.cards.filter((item) => {
           return re.test(item.name.toLowerCase());
         }),
+        isResultUpdated: true,
       });
       console.log(this.state.result);
     }
@@ -41,11 +46,17 @@ export default class Home extends React.Component {
           placeholder="Search Cards.."
           onChange={(e) => this.gettingValue(e.target.value)}
         />
-        {this.state.isUpdated ? (
-          <div>working on it</div>
-        ) : (
-          console.log("there is nothing")
-        )}
+        <div className="result">
+          {this.state.isResultUpdated
+            ? this.state.result.map((item) => {
+                return (
+                  <div className="resultValue">
+                    <img src={item.card_images[0].image_url_small} />
+                  </div>
+                );
+              })
+            : console.log("there is nothing")}
+        </div>
       </div>
     );
   }

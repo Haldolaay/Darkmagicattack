@@ -24,3 +24,4 @@ This Project was made by a suggestion from a friend, he disapeared, I think he i
     create about page
     fix design
     wait until the typing stops - look into promises
+    add a side panel for types filter
