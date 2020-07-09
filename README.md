@@ -17,15 +17,12 @@ This Project was made by a suggestion from a friend, he disapeared, I think he i
 
     TODO//
     fix card names // fixed
-    show random cards // 
-    create autoComplete function
-    create login
-    create deck page
-    create about page
-    fix design// work in progress
-    wait until the typing stops - look into promises
-<<<<<<< HEAD
-    add a side panel for types filter
-=======
+    show random cards // fixed
+    create autoComplete function //
+    create login//
+    create deck page // in progress
+    create about page // in porgress
+    fix design// work in progress // looks better now
+    wait until the typing stops - look into promises // set delay function// function done but still feels bad
+    add a side panel for types filter // in progress
     add a card filter dropDown hidden under the search bar or over it// I don't know yet
->>>>>>> 19cc8bd568cb236159b2bbd7333161595403e463
