@@ -1,0 +1,19 @@
+.home-container {
+  text-align: center;
+}
+.result {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.resultValue {
+  flex-wrap: wrap;
+}
+.card {
+  margin: 50px;
+}
+.link {
+  text-decoration: none;
+  background-color: #8f0000;
+  color: white;
+}
