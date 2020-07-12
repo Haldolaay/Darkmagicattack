@@ -18,6 +18,7 @@ export default class Home extends React.Component {
       fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
         .then((response) => response.json())
         .then((response) => {
+          console.log(response);
           this.setState({ cards: response.data, isUpdated: true });
         });
     }
@@ -27,14 +28,12 @@ export default class Home extends React.Component {
     var re = new RegExp(cardName, "g");
     // console.log(re);
     if (this.state.isUpdated) {
-      setTimeout(() => {
-        this.setState({
-          result: this.state.cards.filter((item) => {
-            return re.test(item.name.toLowerCase());
-          }),
-          isResultUpdated: true,
-        });
-      }, 2000);
+      this.setState({
+        result: this.state.cards.filter((item) => {
+          return re.test(item.name.toLowerCase());
+        }),
+        isResultUpdated: true,
+      });
     }
   }
   render() {
@@ -57,10 +56,7 @@ export default class Home extends React.Component {
             : console.log("there is nothing")}
         </div> */}
         {this.state.isResultUpdated ? (
-          <Result
-            cards={this.state.result}
-            isResultUpdated={this.state.isResultUpdated}
-          />
+          <Result cards={this.state.result} />
         ) : (
           <div>working on it</div>
         )}

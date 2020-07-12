@@ -16,6 +16,8 @@ This Project was made by a suggestion from a friend, he disapeared, I think he i
 "react-scripts": "3.4.1"
 
     TODO//
+    move the input up
+    map the objects to only pass the image, why are you passing everything lol
     fix card names // fixed
     show random cards // fixed
     create autoComplete function //

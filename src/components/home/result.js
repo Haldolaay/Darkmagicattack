@@ -24,18 +24,15 @@ export default class Result extends React.Component {
     super(props);
   }
   componentDidMount() {}
-  componentWillReceiveProps() {
-    console.log(this.props);
-  }
   render() {
     return (
       <Grid container className={useStyles.root} spacing={10}>
         <Grid item xs={12}>
           <Grid container justify="center" spacing={2}>
-            {this.props.cards.map((item) => (
-              <div className="card">
+            {this.props.cards.map((item, index) => (
+              <div className="card" key={index}>
                 <img src={item.card_images[0].image_url_small} />
-                <Link to={`/${item.id}`} className="link">
+                <Link to={`/${item.id}`} className="link" params={item.id}>
                   Details
                 </Link>
               </div>

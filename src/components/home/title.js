@@ -7,13 +7,17 @@ import puzzle4 from "../pic/puzzle4.png";
 import "./title.css";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import { FaBeer } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default function Title() {
   return (
     <div style={{ backgroundColor: "##95cded" }}>
       <div className="container">
         <button className="logo">
-          <img src={logo} />
+          <a href="/">
+            <img src={logo} />
+          </a>
         </button>
+
         <button className="first">
           <img src={puzzle} />
         </button>
