@@ -12,6 +12,15 @@
 .card {
   margin: 50px;
 }
+.card:hover img {
+  transform: scaleY(0.66);
+  transition: width 1s;
+}
+
+.card:hover {
+  transform: scaleY(1.5);
+  transform-origin: bottom;
+}
 .link {
   text-decoration: none;
   background-color: #8f0000;

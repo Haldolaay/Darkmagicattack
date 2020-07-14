@@ -1,0 +1,10 @@
+.card_container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* .left {
+}
+.right {
+} */

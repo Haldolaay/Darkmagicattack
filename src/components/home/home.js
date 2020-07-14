@@ -1,9 +1,9 @@
 import React from "react";
-import { Input } from "@material-ui/core";
+import { connect } from "react-redux";
 import "./home.css";
 import Pagination from "@material-ui/lab/Pagination";
 import Result from "./result";
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,11 +18,17 @@ export default class Home extends React.Component {
       fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
           this.setState({ cards: response.data, isUpdated: true });
+          this.props.dispatch({ type: "FETCH", payload: response.data });
         });
     }
   }
+  componentDidUpdate(prevProps) {
+    prevProps != this.props
+      ? this.gettingValue(this.props.input)
+      : console.log("they are the same");
+  }
+
   gettingValue(event) {
     let cardName = event;
     var re = new RegExp(cardName, "g");
@@ -39,22 +45,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <Input
-          type="text"
-          placeholder="Search Cards.."
-          onChange={(e) => this.gettingValue(e.target.value)}
-        />
-        {/* <div className="result">
-          {this.state.isResultUpdated
-            ? this.state.result.map((item) => {
-                return (
-                  <div className="resultValue">
-                    <img src={item.card_images[0].image_url_small} />
-                  </div>
-                );
-              })
-            : console.log("there is nothing")}
-        </div> */}
         {this.state.isResultUpdated ? (
           <Result cards={this.state.result} />
         ) : (
@@ -64,3 +54,15 @@ export default class Home extends React.Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    input: state.input, // this state is from redux store, not this component lol
+    data: state.data,
+  };
+}
+
+// Then replace this:
+// export default Counter;
+
+// With this:
+export default connect(mapStateToProps)(Home);

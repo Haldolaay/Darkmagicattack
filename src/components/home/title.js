@@ -5,6 +5,7 @@ import puzzle2 from "../pic/puzzle2.png";
 import puzzle3 from "../pic/puzzle3.png";
 import puzzle4 from "../pic/puzzle4.png";
 import "./title.css";
+
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import { FaBeer } from "react-icons/fa";
 import { Link } from "react-router-dom";
