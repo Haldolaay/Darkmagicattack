@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "@material-ui/core";
+import { Input, Button } from "@material-ui/core";
 import "./home.css";
 import Pagination from "@material-ui/lab/Pagination";
 import Result from "./result";
@@ -9,6 +9,7 @@ export default class Home extends React.Component {
     this.state = {
       cards: [],
       isUpdated: false,
+      filteredResult: [],
       result: [],
       isResultUpdated: false,
     };
@@ -44,6 +45,15 @@ export default class Home extends React.Component {
           placeholder="Search Cards.."
           onChange={(e) => this.gettingValue(e.target.value)}
         />
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => {
+            this.setState({ filteredResult: this.state.result });
+          }}
+        >
+          Search
+        </Button>
         {/* <div className="result">
           {this.state.isResultUpdated
             ? this.state.result.map((item) => {
@@ -56,7 +66,7 @@ export default class Home extends React.Component {
             : console.log("there is nothing")}
         </div> */}
         {this.state.isResultUpdated ? (
-          <Result cards={this.state.result} />
+          <Result cards={this.state.filteredResult} />
         ) : (
           <div>working on it</div>
         )}
