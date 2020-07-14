@@ -1,6 +1,10 @@
 .card_container {
   margin: 20px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
+}
+.right {
+  text-align: center;
+  background-color: rgba(246, 232, 216, 0.719);
+  font-family: Arial, Helvetica, sans-serif;
 }

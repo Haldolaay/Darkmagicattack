@@ -44,8 +44,8 @@ export default class Result extends React.Component {
           color="primary"
           renderItem={(item) => (
             <PaginationItem
-              // component={Link}
-              // to={`/inbox${item.page === 1 ? '' : `?page=${item.page}`}`}
+              component={Link}
+              to={`/inbox${item.page === 1 ? "" : `?page=${item.page}`}`}
               {...this.props.cards}
             />
           )}

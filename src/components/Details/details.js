@@ -54,6 +54,7 @@ export default class details extends React.Component {
         <div className="right">
           <div>
             <p>{this.state.card[0].desc}</p>
+            <p>{this.state.card[0].race}</p>
           </div>
         </div>
       </div>
